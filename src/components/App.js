@@ -42,7 +42,21 @@ class App extends React.Component {
     })
   }
   
-  
+  handleAdopt = (pet) => {
+    for (let i = 0; i < this.state.pets.length; i++) {
+      if (this.state.pets[i].id === pet) {
+        this.setState(prevState => {
+          let newItem = this.state.pets[i]
+          newItem.isAdopted = true
+          const newList = prevState.pets.filter(check => check.id !== pet)
+          return {
+            ...prevState,
+            pets: newItem
+          } 
+        })
+      }
+    }
+  }
 
   render() {
     return (
@@ -56,7 +70,7 @@ class App extends React.Component {
               <Filters onChangeType={this.changeState} onFindPetsClick={this.makeRequest}/>
             </div>
             <div className="twelve wide column">
-              <PetBrowser />
+              <PetBrowser onAdoptPet={this.handleAdopt}/>
             </div>
           </div>
         </div>
