@@ -2,7 +2,7 @@ import React from 'react'
 {/*'♀' OR '♂' */}
 
 class Pet extends React.Component {
-  genderCheck = () => {
+  genderCheck = () => { // check which gender icon to use
     if (this.props.pet.gender === 'male') {
       return '♂'
     } else {
@@ -11,7 +11,7 @@ class Pet extends React.Component {
   }
 
   adoptStatus = () => {
-    if (this.props.pet.isAdopted === true) {
+    if (this.props.pet.isAdopted === true) { // checks adoption status and diplays correct button
       return <button className="ui disabled button">Already adopted</button>
     } else{
       return <button className="ui primary button" onClick={() => this.props.onAdoptPet(this.props.pet.id)}>Adopt pet</button>

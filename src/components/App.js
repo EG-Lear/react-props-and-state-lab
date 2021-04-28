@@ -12,7 +12,7 @@ class App extends React.Component {
     }
   }
  
-  makeRequest = () => {
+  makeRequest = () => { // does correct fetch request based on user selction
     if (this.state.filters.type === 'all') {
       fetch('/api/pets')
       .then(res => res.json())
@@ -42,7 +42,7 @@ class App extends React.Component {
     })
   }
   
-  handleAdopt = (petId) => {
+  handleAdopt = (petId) => { // updates state to reflect when a user click adopt pet button
     console.log('test')
     for (let i = 0; i < this.state.pets.length; i++) {
       if (this.state.pets[i].id === petId) {

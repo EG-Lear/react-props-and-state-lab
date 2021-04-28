@@ -1,7 +1,7 @@
 import React from 'react'
 
 class Filters extends React.Component {
-  handleChange = (event) => {
+  handleChange = (event) => { // handles user pet type selection
     //console.log('test')
     this.props.onChangeType(event.target.value)
   }
